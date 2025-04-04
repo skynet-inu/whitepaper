@@ -1,0 +1,246 @@
+/* ===== VARIABLES ===== */
+:root {
+    --primary: #00aaff;
+    --primary-light: rgba(0, 170, 255, 0.2);
+    --secondary: #ff00f7;
+    --dark: #0a0a1a;
+    --darker: #050510;
+    --light: #ffffff;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* ===== BASE RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.7;
+    background-image: 
+        radial-gradient(circle at 20% 30%, var(--primary-light) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 247, 0.1) 0%, transparent 25%);
+}
+
+/* ===== LAYOUT ===== */
+.whitepaper-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* ===== HEADER STYLES ===== */
+.wp-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    height: 80px;
+    z-index: 2;
+    position: relative;
+    filter: drop-shadow(0 0 15px var(--primary));
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+}
+
+.version {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.wp-section {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--primary-light);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 1s ease-out;
+}
+
+h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--primary-light);
+}
+
+/* ===== CARD GRID ===== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    background: rgba(20, 30, 40, 0.6);
+    border: 1px solid var(--primary-light);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 170, 255, 0.2);
+    border-color: var(--primary);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 2rem;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gradient);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2px solid var(--darker);
+}
+
+.timeline h3 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.timeline ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.timeline li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline li:before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+/* ===== FOOTER ===== */
+.wp-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.back-btn {
+    display: inline-block;
+    background: var(--gradient);
+    color: var(--darker);
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3);
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 170, 255, 0.4);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .whitepaper-wrapper {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .wp-section {
+        padding: 1.5rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
